@@ -74,7 +74,3 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: ./script/github-release.py dist/*.tar.gz{,.asc}
-      - name: Delete signatures before deploying to PyPI
-        run: rm dist/*.asc
-      - name: PyPI release
-        uses: pypa/gh-action-pypi-publish@release/v1
