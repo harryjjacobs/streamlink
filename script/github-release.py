@@ -302,7 +302,7 @@ class GitHubAPI:
 
 
 class Release:
-    def __init__(self, tag: str, template: Path):
+    def __init__(self, tag: str):
         self.tag = tag
 
     @staticmethod
