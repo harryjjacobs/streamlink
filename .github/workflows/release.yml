@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     name: Build
-    if: github.repository == 'streamlink/streamlink'
+    if: github.repository == 'harryjjacobs/streamlink'
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
@@ -45,7 +45,7 @@ jobs:
 
   deploy:
     name: Deploy
-    if: github.repository == 'streamlink/streamlink'
+    if: github.repository == 'harryjjacobs/streamlink'
     needs:
       - build
     runs-on: ubuntu-latest
