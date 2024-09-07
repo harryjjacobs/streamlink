@@ -73,4 +73,4 @@ jobs:
       - name: Github release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: ./script/github-release.py dist/*.tar.gz{,.asc}
+        run: ./script/github-release.py dist/*.tar.gz{,.asc} dist/*.whl{,.asc}
