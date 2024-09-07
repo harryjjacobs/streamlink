@@ -1,5 +1,9 @@
 # Changelog
 
+## streamlink 6.10.0+autohls.1 (2024-09-07)
+
+- Added Auto HLS plugin
+
 ## streamlink 6.10.0 (2024-09-06)
 
 - Added: official support for Python 3.13 ([#6133](https://github.com/streamlink/streamlink/pull/6133))
