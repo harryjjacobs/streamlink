@@ -13,7 +13,9 @@ REQUIRED_PYTHON = (3, 8)
 
 # This check and everything above must remain compatible with older Python versions
 if CURRENT_PYTHON < REQUIRED_PYTHON:
-    sys.exit(format_msg("""
+    sys.exit(
+        format_msg(
+            """
         ========================================================
                        Unsupported Python version
         ========================================================
@@ -23,15 +25,22 @@ if CURRENT_PYTHON < REQUIRED_PYTHON:
         This may be because you are using a version of pip that
         doesn't understand the python_requires classifier.
         Make sure you have pip >= 9.0 and setuptools >= 24.2
-    """, *(REQUIRED_PYTHON + CURRENT_PYTHON)))
+    """,
+            *(REQUIRED_PYTHON + CURRENT_PYTHON),
+        )
+    )
 
 # Explicitly disable running tests via setuptools
 if "test" in sys.argv:
-    sys.exit(format_msg("""
+    sys.exit(
+        format_msg(
+            """
         Running `python setup.py test` has been deprecated since setuptools 41.5.0.
         Streamlink requires pytest for collecting and running tests, via one of these commands:
         `pytest` or `python -m pytest` (see the pytest docs for more infos about this)
-    """))
+    """
+        )
+    )
 
 
 def is_wheel_for_windows(argv):
@@ -47,7 +56,10 @@ def is_wheel_for_windows(argv):
 
 
 entry_points = {
-    "console_scripts": ["streamlink=streamlink_cli.main:main"],
+    "console_scripts": [
+        "streamlink=streamlink_cli.main:main",
+        "football=football_streams_cli.main:main",
+    ],
 }
 
 if is_wheel_for_windows(sys.argv):
@@ -82,6 +94,7 @@ if __name__ == "__main__":
         # versioningit is only required when building from git (see pyproject.toml)
         from versioningit import get_cmdclasses
     except ImportError:  # pragma: no cover
+
         def get_cmdclasses(_):  # type: ignore[misc]
             return _
 
